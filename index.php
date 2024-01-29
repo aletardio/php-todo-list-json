@@ -15,8 +15,10 @@
                     <h1 class="text-center"> <?php echo "PHP ToDo List JSON" ?></h1>
                 </div>
                 <div class="col-12">
-                    <ul class="list-unstyled">
-                        <li></li>
+                    <ul class="list-unstyled text-center">
+                        <li v-for="todo, index in todoList" :key="index">
+                            {{ todo.text }}
+                        </li>
                     </ul>
                 </div>
             </div>
