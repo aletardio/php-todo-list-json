@@ -9,7 +9,18 @@
 <body>
     
     <div id="app">
-        
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-center"> <?php echo "PHP ToDo List JSON" ?></h1>
+                </div>
+                <div class="col-12">
+                    <ul class="list-unstyled">
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
 
