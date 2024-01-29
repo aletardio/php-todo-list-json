@@ -17,7 +17,7 @@
                 <div class="col-12">
                     <ul class="list-unstyled text-center">
                         <li v-for="todo, index in todoList" :key="index">
-                            {{ todo.text }}
+                            {{ todo }}
                         </li>
                     </ul>
                 </div>
