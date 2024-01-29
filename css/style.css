@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    border-radius: 10px;
+    background-color: #013c9572;
+}
+
+.bg-blue {
+}
