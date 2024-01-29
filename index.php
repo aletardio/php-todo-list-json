@@ -21,6 +21,12 @@
                         </li>
                     </ul>
                 </div>
+                <div class="col-12">
+                    <div class="input-group">
+                        <input type="text" @keyup.enter="updateTodoList" v-model="todoItem" class="form-control" placeholder="Inserisci una nuova task">
+                        <button @click="updateTodoList" class="btn btn-success" type="button" id="save-todo">Salva</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
