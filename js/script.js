@@ -5,31 +5,50 @@ createApp ({
         return {
             apiUrl: 'server.php',
             todoList: [],
-            todoItem: ''
+            item: ''
         }
     },
     mounted() {
         this.getTodoList();
     },
     methods: {
-        updateTodoList(){
+        getTodoList(){
+            axios.get(this.apiUrl).then((response) => {
+                this.todoList = response.data;
+            });
+        },
+        toggleTodoStatus(index){
             const data = {
-                todoItem: this.todoItem, 
+                todoIndex: index
             }
 
             axios.post(this.apiUrl, data, {
                 headers: { 'Content-type': 'multipart/form-data'}
             }).then((response) => {
-                this.todoItem = '';
-
                 this.todoList = response.data;
             })
         },
-        getTodoList(){
-            axios.get(this.apiUrl).then((response) => {
-                console.log(response.data);
+        addTodo(){
+            const data = {
+                newTask: this.item,
+            }
+
+            axios.post(this.apiUrl, data, {
+                headers: { 'Content-type': 'multipart/form-data'}
+            }).then((response) => {
                 this.todoList = response.data;
-            });
+            })
+        },
+        deleteTodo(index){
+            const data = {
+                todoIndexDelete: index
+            }
+
+            axios.post(this.apiUrl, data, {
+                headers: { 'Content-type': 'multipart/form-data'}
+            }).then((response) => {
+                this.todoList = response.data;
+            })
         }
     },
 }).mount('#app');

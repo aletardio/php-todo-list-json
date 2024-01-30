@@ -18,14 +18,23 @@
                 <div class="col-12 py-3">
                     <ul class="list-unstyled">
                         <li class="py-3 bg-blue border-top" v-for="todo, index in todoList" :key="index">
-                            {{ todo }}
+                            <div class=" d-flex justify-content-between">
+                                <div @click="toggleTodoStatus(index)" 
+                                :class="todo.done ? 'text-decoration-line-through' : ''">
+                                    {{ todo.text }}
+                                </div>
+                                <div>
+                                    <button @click="toggleTodoStatus(index)" class="btn btn-sm btn-primary" v-text="todo.done ? 'Done' : 'Not Done'"></button>
+                                    <button @click="deleteTodo(index)" class="btn btn-sm btn-danger ms-2">Delete</button>
+                                </div>
+                            </div>
                         </li>
                     </ul>
                 </div>
                 <div class="col-12">
                     <div class="input-group">
-                        <input type="text" @keyup.enter="updateTodoList" v-model="todoItem" class="form-control" placeholder="Inserisci una nuova task">
-                        <button @click="updateTodoList" class="btn btn-primary" type="button" id="save-todo">Salva</button>
+                        <input type="text" @keyup.enter="addTodo" v-model="item" class="form-control" placeholder="Inserisci una nuova task">
+                        <button @click="addTodo" class="btn btn-primary" type="button" id="save-todo">Salva</button>
                     </div>
                 </div>
             </div>
